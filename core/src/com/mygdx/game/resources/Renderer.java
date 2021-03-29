@@ -41,11 +41,7 @@ public class Renderer {
     }
 
     private void renderBullets(){
-
-        for(Bullet obj : aliveBullets){
-            obj.show();
-        }
-
+        for(Bullet obj : aliveBullets) obj.show();
     }
 
     private void clearScreen(){

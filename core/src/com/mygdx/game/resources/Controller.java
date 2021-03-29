@@ -44,7 +44,7 @@ public class Controller {
             spaceTimer += Gdx.graphics.getDeltaTime();
         }
 
-        if(spaceTimer >= 0.5){
+        if(spaceTimer >= 0.30){
             spaceButtonLimiter = false;
             spaceTimer = 0.0f;
         }

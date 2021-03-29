@@ -4,6 +4,7 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g3d.particles.values.MeshSpawnShapeValue.Triangle;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.mygdx.game.resources.GarbageCollector;
 import com.mygdx.game.resources.Renderer;
 
 public class Space extends ApplicationAdapter {
@@ -21,6 +22,7 @@ public class Space extends ApplicationAdapter {
 	@Override
 	public void render () {
 		Renderer.getInstance().run();
+		GarbageCollector.getCollector().clean();
 	}
 	
 	@Override

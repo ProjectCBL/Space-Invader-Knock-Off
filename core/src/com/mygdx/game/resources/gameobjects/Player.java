@@ -130,12 +130,22 @@ public class Player extends Entity{
         );
 
         //Blaster/Front Piece
-        shapeRenderer.setColor(Color.ORANGE);
+        if(!Controller.getController().spaceButtonLimiter) shapeRenderer.setColor(Color.ORANGE);
+        else shapeRenderer.setColor(Color.BROWN);
         shapeRenderer.rect(
             origin.x - 8,
             origin.y + 5 - 35, 
             16, 
             70
+        );
+
+        //Decal
+        shapeRenderer.setColor(Color.ORANGE);
+        shapeRenderer.rect(
+            origin.x - 8,
+            origin.y - 30, 
+            16, 
+            60
         );
 
         //Front

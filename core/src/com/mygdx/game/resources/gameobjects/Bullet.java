@@ -14,6 +14,8 @@ public class Bullet extends Entity{
         ENEMY
     }
 
+    public float lifeSpan = 0.0f;
+
     private float bulletVelocity;
     private Alignment bulletAlignment;
 
@@ -68,6 +70,8 @@ public class Bullet extends Entity{
         }
 
         shapeRenderer.end();
+
+        lifeSpan += Gdx.graphics.getDeltaTime();
 
     }
 
