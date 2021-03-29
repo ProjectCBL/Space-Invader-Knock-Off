@@ -5,16 +5,10 @@ import com.badlogic.gdx.math.Matrix4;
 import com.mygdx.game.resources.gameobjects.Bullet;
 
 public class BulletManager {
-    
-    private static BulletManager bulletManager = new BulletManager();
 
-    public static ArrayList<Bullet> aliveBullets = new ArrayList<Bullet>(); 
+    public ArrayList<Bullet> aliveBullets = new ArrayList<Bullet>(); 
 
-    private BulletManager(){}
-
-    public static BulletManager getManager(){
-        return bulletManager;
-    }
+    public BulletManager(){}
 
     public void setBulletMatrixes(Matrix4 newProjectionMatrix){
 
@@ -28,7 +22,6 @@ public class BulletManager {
 
         for(Bullet obj : aliveBullets){
             obj.show();
-            System.out.println(obj.origin);
         }
 
     }

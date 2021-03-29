@@ -2,9 +2,9 @@ package com.mygdx.game.resources.gameobjects;
 
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector2;
+import com.mygdx.game.resources.Renderer;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 
 public class Bullet extends Entity{
@@ -25,10 +25,11 @@ public class Bullet extends Entity{
         ));
 
         setBulletAlignment(bulletSummoner.getClass().getName());
+
         this.bulletVelocity = bulletVelocity;
         origin = spawnPoint;
 
-        shapeRenderer = new ShapeRenderer();
+        shapeRenderer = Renderer.objectRenderer;
 
     }
 
@@ -51,7 +52,7 @@ public class Bullet extends Entity{
     @Override
     public void show() {
         
-        //shoot();
+        shoot();
 
         shapeRenderer.begin(ShapeType.Filled);
 
@@ -70,9 +71,7 @@ public class Bullet extends Entity{
 
     }
 
-    private void showPlayerBulletSprite(){
-
-        System.out.println("Something");
+    public void showPlayerBulletSprite(){
 
         shapeRenderer.setColor(Color.YELLOW);
         shapeRenderer.rect(

@@ -1,14 +1,20 @@
 package com.mygdx.game.resources;
 
+import java.util.ArrayList;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.mygdx.game.resources.gameobjects.Bullet;
 import com.mygdx.game.resources.gameobjects.Player;
 
 public class Renderer {
 
     private static Batch gameBatch;
     private static Renderer renderer = new Renderer();
+
+    public static ShapeRenderer objectRenderer = new ShapeRenderer();
+    public static ArrayList<Bullet> aliveBullets = new ArrayList<Bullet>(); 
 
     private Renderer(){}
 
@@ -30,8 +36,16 @@ public class Renderer {
     private void renderGameplayArea(){
         gameBatch.begin();
         Player.getPlayer().show();
-        BulletManager.getManager().showBullets();
+        renderBullets();
         gameBatch.end();
+    }
+
+    private void renderBullets(){
+
+        for(Bullet obj : aliveBullets){
+            obj.show();
+        }
+
     }
 
     private void clearScreen(){
@@ -41,7 +55,6 @@ public class Renderer {
 
     private void setAllMatrixes(){
         Player.getPlayer().setProjectionMatrix(gameBatch.getProjectionMatrix());
-        BulletManager.getManager().setBulletMatrixes(gameBatch.getProjectionMatrix());
     }
 
 }

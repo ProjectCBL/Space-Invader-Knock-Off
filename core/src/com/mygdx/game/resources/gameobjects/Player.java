@@ -7,8 +7,8 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
-import com.mygdx.game.resources.BulletManager;
 import com.mygdx.game.resources.Controller;
+import com.mygdx.game.resources.Renderer;
 import com.mygdx.game.resources.effects.DeathAnim;
 
 public class Player extends Entity{
@@ -18,7 +18,7 @@ public class Player extends Entity{
 
     private float dx = 150f;
     private float dy = 150f;
-    private float bulletVelocity = 50f;
+    private float bulletVelocity = 300f;
     private static Player player = new Player();
 
     private Player(){
@@ -242,7 +242,7 @@ public class Player extends Entity{
     
     @Override
     public void shoot() {
-        BulletManager.aliveBullets.add(new Bullet(
+        Renderer.aliveBullets.add(new Bullet(
             this,
             new Vector2(origin.x, origin.y-30),
             bulletVelocity
